@@ -1,0 +1,7 @@
+{
+  "name": "Click Bazaar",
+  "description": "A production-ready e-commerce platform featuring multi-category shopping, a robust cart system, and a comprehensive admin dashboard for product and order management.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
