@@ -49,15 +49,17 @@ Product images are sourced from Unsplash, with the following served locally from
 
 1. Install dependencies:
    ```
+
    npm install
    ```
+   
 2. Set the `GEMINI_API_KEY` in `.env.local` to your Gemini API key
 3. Run the app:
    ```
+
+   
    npm run dev
    ```
-
-The app will be available at `http://localhost:3000`.
 
 ## Scripts
 
