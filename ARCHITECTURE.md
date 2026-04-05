@@ -9,57 +9,73 @@
 High-level architecture with all components:
 
 ```mermaid
-graph TD
-    subgraph Frontend["🎨 Frontend (React + Vite + Tailwind)"]
-        UI["💎 App Shell / Navigation"]
-        Pages["📂 Shopping / Admin / Chat"]
-        Auth_UI["🔐 Login / Sign Up Forms"]
-        ClickBot["🤖 ClickBot Chat"]
-        Services["🛰️ API Service Client"]
+graph TB
+    subgraph "🎨 Frontend (React + Vite + Tailwind)"
+        A[App.tsx<br/>Main Component]
+        B[Pages<br/>Shopping/Admin/Chat]
+        C[Components<br/>UI Elements]
+        D[Services Layer<br/>api.ts + geminiService.ts]
     end
 
-    subgraph Backend["🚀 Backend (Node.js + Express)"]
-        Auth_Middleware["🛡️ JWT Auth Middleware"]
-        Email_Service["📧 Email Service (Gmail SMTP)"]
-        Email_Opts["📨 OTP | Password | Support"]
-        API_Routes["🛤️ API Routes (/api/*) + Products Endpoint"]
-        Products_API["📋 GET /api/products"]
-        DB_Access["📦 Database Access"]
-        AI_Layer["🧠 AI Orchestration"]
+    subgraph "🚀 Backend (Node.js + Express)"
+        E[Express Server<br/>Port 4100]
+        F[JWT Auth Middleware<br/>Token Verification]
+        G[API Routes<br/>/api/* endpoints]
+        H[Email Service<br/>SMTP + Templates]
+        I[AI Orchestration<br/>Gemini + Groq]
     end
 
-    subgraph Database["🗄️ SQLite Database"]
-        Users_DB["👤 Users"]
-        Orders_DB["📜 Orders"]
-        Sessions_DB["🔑 Sessions"]
-        Audit_DB["📁 Audit Logs"]
-        Products_DB["📦 Products (Auto-Seeded)"]
+    subgraph "🗄️ SQLite Database"
+        J[(Users Table)]
+        K[(Orders Table)]
+        L[(Sessions Table)]
+        M[(Audit Logs)]
+        N[(Products<br/>Auto-seeded)]
     end
 
-    subgraph Email["📧 Email System (Gmail SMTP)"]
-        Registration["✅ Registration OTP"]
-        Recovery["🔄 Password Recovery"]
-        Support["💬 Support Tickets"]
+    subgraph "📧 External Services"
+        O[Gmail SMTP<br/>Email Delivery]
+        P[Google Gemini<br/>AI Chat/Generation]
+        Q[Groq API<br/>AI Chat/Generation]
     end
 
-    subgraph AI["🤖 External AI Services"]
-        Gemini["👁️ Google Gemini"]
-        Groq["🏎️ Groq / Llama"]
-    end
+    %% Frontend to Backend connections
+    D -->|HTTP/HTTPS<br/>API Calls| G
+    D -->|JWT Tokens| F
 
-    Frontend -->|HTTP/HTTPS| Services
-    Services -->|API Calls Port 4100| API_Routes
-    Services -->|Fetch Products| Products_API
-    Products_API -->|Return Array| Products_DB
-    Auth_UI -->|Login/Signup| API_Routes
-    API_Routes -->|Verify Token| Auth_Middleware
-    Auth_Middleware -->|Protected Endpoints| DB_Access
-    DB_Access -->|CRUD Operations| Database
-    Email_Service -->|Send| Email_Opts
-    Email_Opts -->|Deliver via| Email
-    AI_Layer -->|Query| Gemini
-    AI_Layer -->|Query| Groq
-    ClickBot -->|Chat Request| AI_Layer
+    %% Backend internal connections
+    E --> F
+    F --> G
+    G -->|Database Queries| J
+    G -->|Database Queries| K
+    G -->|Database Queries| L
+    G -->|Database Queries| M
+    G -->|Database Queries| N
+
+    %% Email connections
+    H -->|SMTP| O
+    G -->|Email Requests| H
+
+    %% AI connections
+    I -->|API Calls| P
+    I -->|API Calls| Q
+    G -->|AI Requests| I
+
+    %% User interactions
+    A -->|User Actions| D
+    B -->|Page Navigation| A
+    C -->|UI Updates| B
+
+    %% Styling
+    classDef frontend fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef backend fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef database fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef external fill:#fff3e0,stroke:#e65100,stroke-width:2px
+
+    class A,B,C,D frontend
+    class E,F,G,H,I backend
+    class J,K,L,M,N database
+    class O,P,Q external
 ```
 
 ---
@@ -67,20 +83,62 @@ graph TD
 ## 📧 Email System Flow (3 Features)
 
 ```mermaid
-graph LR
-    User["👤 User Action"]
-    BE["🚀 Backend"]
-    
-    User1["Sign Up"] -->|OTP Needed| BE
-    User2["Forgot Password"] -->|Reset Code Needed| BE
-    User3["Send Support"] -->|Admin Notification| BE
-    
-    BE -->|Nodemailer| SMTP["📧 Gmail SMTP"]
-    SMTP -->|Deliver to Inbox| Email["📬 Email Received"]
-    
-    Email -->|OTP Code 6-digit| User1
-    Email -->|Recovery Code| User2
-    Email -->|Support Message| Admin["👨‍💼 Admin"]
+graph TD
+    subgraph "👤 User Actions"
+        A1[User Signs Up]
+        A2[User Forgets Password]
+        A3[User Submits Support Ticket]
+    end
+
+    subgraph "🚀 Backend Processing"
+        B1[Generate 6-digit OTP]
+        B2[Send OTP Email]
+        B3[Validate OTP]
+        B4[Send Recovery Email]
+        B5[Send Support Email to Admin]
+    end
+
+    subgraph "📧 Gmail SMTP Service"
+        C1[Connect to Gmail SMTP]
+        C2[Send HTML Email]
+        C3[Deliver to Inbox]
+    end
+
+    subgraph "📬 Email Delivery"
+        D1[OTP Code to User]
+        D2[Recovery Link to User]
+        D3[Support Message to Admin]
+    end
+
+    A1 --> B1
+    B1 --> B2
+    B2 --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 --> D1
+
+    A2 --> B4
+    B4 --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 --> D2
+
+    A3 --> B5
+    B5 --> C1
+    C1 --> C2
+    C2 --> C3
+    C3 --> D3
+
+    %% Styling
+    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef backend fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    classDef smtp fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    classDef delivery fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+
+    class A1,A2,A3 user
+    class B1,B2,B3,B4,B5 backend
+    class C1,C2,C3 smtp
+    class D1,D2,D3 delivery
 ```
 
 ---
@@ -89,34 +147,58 @@ graph LR
 
 ```mermaid
 sequenceDiagram
-    participant Client as 🎨 Frontend
-    participant Server as 🚀 Backend
-    participant DB as 🗄️ Database
-    participant Email as 📧 Email
+    participant U as 👤 User
+    participant F as 🎨 Frontend
+    participant B as 🚀 Backend
+    participant DB as 🗄️ SQLite DB
+    participant E as 📧 Gmail SMTP
 
-    Client->>Server: 1. Sign Up Request (email, password, name)
-    Server->>DB: 2. Check if email exists
-    alt Email Already Exists
-        Server-->>Client: ❌ "Email already registered. Please Log In."
-    else New Email
-        Server->>Server: 3. Generate OTP (6-digit)
-        Server->>Email: 4. Send OTP Email
-        Email-->>Client: ✅ "Check your email for code"
-        Client->>Server: 5. Submit OTP + Password
-        Server->>Server: 6. Validate password (8+ chars, uppercase, number, special)
-        Server->>Server: 7. Hash password with Bcrypt
-        Server->>DB: 8. Create user account
-        Server-->>Client: ✅ Signed up! Logged in.
-        Server->>Server: 9. Generate JWT Token (7-day expiry)
+    %% Registration Flow
+    rect rgb(240, 248, 255)
+        U->>F: 1. Fill signup form
+        F->>B: 2. POST /api/register/send-otp
+        B->>DB: 3. Check email exists
+        alt Email exists
+            B-->>F: ❌ "Email already registered"
+        else New email
+            B->>B: 4. Generate 6-digit OTP
+            B->>E: 5. Send OTP email
+            E-->>U: 6. User receives OTP
+            U->>F: 7. Enter OTP + password
+            F->>B: 8. POST /api/register
+            B->>B: 9. Validate OTP & password
+            B->>B: 10. Hash password (bcrypt)
+            B->>DB: 11. Create user account
+            B-->>F: 12. ✅ Success + JWT token
+            F->>F: 13. Store token locally
+        end
     end
 
-    Client->>Server: 10. API Request with JWT
-    Server->>Server: 11. Verify JWT signature
-    alt Valid Token
-        Server->>DB: 12. Fetch user data
-        Server-->>Client: ✅ Data returned
-    else Invalid Token
-        Server-->>Client: ❌ "Please log in again"
+    %% Login Flow
+    rect rgb(255, 248, 220)
+        U->>F: 14. Fill login form
+        F->>B: 15. POST /api/login
+        B->>DB: 16. Verify email + password hash
+        alt Valid credentials
+            B->>B: 17. Generate JWT token
+            B-->>F: 18. ✅ Return token
+            F->>F: 19. Store token
+        else Invalid
+            B-->>F: ❌ "Invalid credentials"
+        end
+    end
+
+    %% Protected API Request
+    rect rgb(240, 255, 240)
+        F->>B: 20. API request + JWT header
+        B->>B: 21. Verify JWT signature
+        alt Valid token
+            B->>DB: 22. Fetch user data
+            B-->>F: 23. ✅ Return data
+        else Invalid/expired
+            B-->>F: ❌ 401 "Unauthorized"
+            F->>F: 24. Redirect to login
+        end
     end
 ```
 
@@ -217,43 +299,207 @@ sequenceDiagram
 
 ---
 
+## 🔄 Complete Data Flow Architecture
+
+```mermaid
+flowchart TD
+    subgraph "🌐 User Layer"
+        U1[👤 Customer]
+        U2[👨‍💼 Admin]
+    end
+
+    subgraph "🎨 Presentation Layer"
+        F1[React App<br/>App.tsx]
+        F2[Pages<br/>Shopping/Cart/Admin]
+        F3[Services<br/>api.ts + AI services]
+    end
+
+    subgraph "🚀 Application Layer"
+        B1[Express Server<br/>index.js]
+        B2[JWT Middleware<br/>Auth verification]
+        B3[API Routes<br/>/api/*]
+        B4[Business Logic<br/>User/Order management]
+    end
+
+    subgraph "📧 Communication Layer"
+        E1[Email Service<br/>emailServiceSMTP.js]
+        E2[AI Orchestration<br/>Gemini + Groq]
+    end
+
+    subgraph "🗄️ Data Layer"
+        D1[SQLite Database<br/>db.js]
+        D2[Users Table]
+        D3[Orders Table]
+        D4[Sessions Table]
+        D5[Audit Logs]
+    end
+
+    subgraph "🔗 External Services"
+        EX1[Gmail SMTP]
+        EX2[Google Gemini API]
+        EX3[Groq API]
+    end
+
+    %% User interactions
+    U1 -->|Browse/Shop| F1
+    U2 -->|Admin Tasks| F1
+
+    %% Frontend flow
+    F1 -->|UI Logic| F2
+    F2 -->|API Calls| F3
+    F3 -->|HTTP Requests| B1
+
+    %% Backend processing
+    B1 -->|Route Requests| B3
+    B3 -->|Auth Check| B2
+    B2 -->|Business Logic| B4
+    B4 -->|Database Operations| D1
+
+    %% Database relationships
+    D1 -->|Store/Retrieve| D2
+    D1 -->|Store/Retrieve| D3
+    D1 -->|Store/Retrieve| D4
+    D1 -->|Store/Retrieve| D5
+
+    %% External communications
+    E1 -->|Send Emails| EX1
+    E2 -->|AI Queries| EX2
+    E2 -->|AI Queries| EX3
+
+    %% Service connections
+    B4 -->|Email Tasks| E1
+    B4 -->|AI Tasks| E2
+
+    %% Styling
+    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    classDef frontend fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef backend fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
+    classDef services fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef database fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
+    classDef external fill:#ffebee,stroke:#b71c1c,stroke-width:2px
+
+    class U1,U2 user
+    class F1,F2,F3 frontend
+    class B1,B2,B3,B4 backend
+    class E1,E2 services
+    class D1,D2,D3,D4,D5 database
+    class EX1,EX2,EX3 external
+```
+
+---
+
 ## 🔄 Data Flow Examples
 
-### **User Registration**  
+### **Complete User Registration Flow**
 
-1. User fills signup form (name, email, password)
-2. Frontend validates password strength
-3. Backend checks if email exists (prevents duplicates)
-4. Backend generates 6-digit OTP
-5. Backend sends OTP via Gmail SMTP
-6. User enters OTP in frontend
-7. Backend validates OTP and password strength again
-8. Backend hashes password with Bcrypt
-9. Backend creates user record in database
-10. Backend generates JWT token
-11. Frontend stores token, user logged in
+```mermaid
+flowchart LR
+    subgraph "🎨 Frontend"
+        F1[User fills form]
+        F2[Validate password strength]
+        F3[Send OTP request]
+        F4[User enters OTP]
+        F5[Complete registration]
+    end
 
-### **Making Authenticated Request**  
+    subgraph "🚀 Backend"
+        B1[Check email exists]
+        B2[Generate OTP]
+        B3[Send OTP email]
+        B4[Validate OTP]
+        B5[Hash password]
+        B6[Create user record]
+        B7[Generate JWT]
+    end
 
-1. Frontend reads JWT from storage
-2. Frontend includes JWT in `Authorization` header
-3. Backend receives request
-4. Backend middleware verifies JWT signature
-5. Backend checks if token expired
-6. If valid: Request processed, returns data
-7. If invalid: Return 401 "Unauthorized"
+    subgraph "🗄️ Database"
+        D1[Users table]
+    end
 
-### **Support Ticket Flow**  
+    subgraph "📧 Email"
+        E1[Gmail SMTP]
+    end
 
-1. User fills support form (name, email, message)
-2. Frontend sends to `POST /api/support/inquiry`
-3. Backend validates input
-4. Backend calls `sendSupportInquiry()` function
-5. Email service connects to Gmail SMTP
-6. Email service composes HTML email
-7. Email sent to admin email address
-8. Backend returns success response to user
-9. Admin receives support ticket in inbox
+    F1 --> F2
+    F2 --> F3
+    F3 --> B1
+    B1 --> B2
+    B2 --> B3
+    B3 --> E1
+    E1 --> F4
+    F4 --> F5
+    F5 --> B4
+    B4 --> B5
+    B5 --> B6
+    B6 --> D1
+    D1 --> B7
+    B7 --> F5
+
+    classDef frontend fill:#e1f5fe,stroke:#01579b
+    classDef backend fill:#f3e5f5,stroke:#4a148c
+    classDef database fill:#e8f5e8,stroke:#1b5e20
+    classDef email fill:#fff3e0,stroke:#e65100
+
+    class F1,F2,F3,F4,F5 frontend
+    class B1,B2,B3,B4,B5,B6,B7 backend
+    class D1 database
+    class E1 email
+```
+
+### **Shopping Cart to Order Flow**
+
+```mermaid
+flowchart TD
+    A[👤 User adds to cart] --> B[Frontend stores in localStorage]
+    B --> C[User clicks checkout]
+    C --> D[Frontend validates cart]
+    D --> E[POST /api/orders]
+    E --> F[Backend validates JWT]
+    F --> G[Backend creates order record]
+    G --> H[Database saves order]
+    H --> I[Backend sends confirmation email]
+    I --> J[Gmail SMTP delivers email]
+    J --> K[User receives confirmation]
+    K --> L[Order status: pending]
+
+    classDef frontend fill:#e1f5fe,stroke:#01579b
+    classDef backend fill:#f3e5f5,stroke:#4a148c
+    classDef database fill:#e8f5e8,stroke:#1b5e20
+    classDef email fill:#fff3e0,stroke:#e65100
+
+    class A,B,C,D frontend
+    class E,F,G,I backend
+    class H database
+    class J email
+    class K,L frontend
+```
+
+### **AI Chat Interaction Flow**
+
+```mermaid
+flowchart LR
+    A[👤 User types message] --> B[Frontend ClickBot component]
+    B --> C[Send to api.ts service]
+    C --> D[POST /api/chat]
+    D --> E[Backend AI orchestration]
+    E --> F{Choose AI service}
+    F -->|Gemini| G[Query Google Gemini API]
+    F -->|Groq| H[Query Groq API]
+    G --> I[Receive AI response]
+    H --> I
+    I --> J[Backend formats response]
+    J --> K[Return to frontend]
+    K --> L[Display in chat UI]
+
+    classDef frontend fill:#e1f5fe,stroke:#01579b
+    classDef backend fill:#f3e5f5,stroke:#4a148c
+    classDef ai fill:#fff3e0,stroke:#e65100
+
+    class A,B,C frontend
+    class D,E,J backend
+    class F,G,H,I ai
+    class K,L frontend
+```
 
 ---
 
