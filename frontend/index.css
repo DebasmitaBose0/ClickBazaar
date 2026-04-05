@@ -6,8 +6,417 @@
   .no-scrollbar::-webkit-scrollbar {
     display: none;
   }
+
   .no-scrollbar {
     -ms-overflow-style: none;
-    scrollbar-width: none;
+  }
+
+  @supports (scrollbar-width: thin) {
+    .no-scrollbar {
+      scrollbar-width: thin;
+    }
+  }
+
+  /* Scrollbar hide for horizontal scroll containers */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+  }
+
+  @supports (scrollbar-width: auto) {
+    .scrollbar-hide {
+      scrollbar-width: none;
+    }
+  }
+}
+
+/* Dynamic width utility using data attributes */
+.progress-bar-dynamic {
+  width: calc(var(--progress-width) * 1%);
+}
+
+@supports (--css: variables) {
+  .progress-bar-dynamic {
+    width: var(--progress-width, 0%);
+  }
+}
+
+/* Shipping progress bar using CSS custom properties */
+.shipping-progress-bar {
+  width: var(--progress-width, 0%);
+}
+
+body {
+  font-family: 'Comic Sans MS', 'Inter', system-ui, -apple-system, sans-serif;
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Smooth Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2);
+  border-radius: 100px;
+  transition: all 0.3s;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+/* Luxury Glassmorphism & Effects */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  backdrop-filter: blur(16px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.125);
+}
+
+.mobile-glass-nav {
+  background: rgba(255, 255, 255, 0.7) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+.hero-text-glow {
+  text-shadow: 0 10px 30px rgba(37, 99, 235, 0.15);
+}
+
+.premium-card {
+  @apply transition-all duration-500;
+  transition-timing-function: cubic-bezier(0.23, 1, 0.32, 1);
+  will-change: transform, box-shadow;
+  background: white;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.premium-card:hover {
+  @apply -translate-y-1 scale-[1.01];
+  box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.1), 0 10px 30px -10px rgba(37, 99, 235, 0.1);
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-15px) rotate(1deg);
+  }
+
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+}
+
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, 0.1);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(37, 99, 235, 0.3);
+  }
+}
+
+@keyframes headingReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
+
+@keyframes headingGradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes tickerScroll {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes shimmery {
+  0% {
+    background-position: -200% 0;
+  }
+
+  100% {
+    background-position: 200% 0;
+  }
+}
+
+/* Atomic Classes */
+.animate-fadeIn {
+  animation: fadeIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-scaleIn {
+  animation: scaleIn 0.35s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-ticker {
+  animation: tickerScroll 25s linear infinite;
+}
+
+.animate-marquee {
+  animation: tickerScroll 40s linear infinite;
+}
+
+.heading-animate.heading-visible {
+  animation: headingReveal 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.heading-gradient-text {
+  background-size: 200% 200%;
+  animation: headingGradientShift 8s ease-in-out infinite;
+}
+
+.shimmer {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.4) 50%, rgba(255, 255, 255, 0) 100%);
+  background-size: 200% 100%;
+  animation: shimmery 2s infinite;
+}
+
+.btn-premium-shine {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-premium-shine::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+  transform: rotate(45deg);
+  transition: all 0.7s;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.btn-premium-shine:hover::after {
+  left: 100%;
+  top: 100%;
+  opacity: 1;
+}
+
+@keyframes blob-bounce {
+
+  0%,
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(30px, -50px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-20px, 20px) scale(0.9);
+  }
+}
+
+.hero-blob {
+  filter: blur(80px);
+  opacity: 0.4;
+  animation: blob-bounce 20s infinite ease-in-out;
+}
+
+.icon-pop {
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.icon-pop:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 20px 30px -10px rgba(37, 99, 235, 0.3);
+}
+
+/* UI Logic Classes */
+.group:hover .group-hover-visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.group-hover-visible {
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+
+  .receipt-print {
+    visibility: visible !important;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+
+/* Heading Gradient Text Variants */
+.heading-gradient-text-6s {
+  background-size: 200% 200%;
+  animation: headingGradientShift 6s ease-in-out infinite;
+}
+
+.heading-gradient-text-10s {
+  background-size: 200% 200%;
+  animation: headingGradientShift 10s ease-in-out infinite;
+}
+
+/* Silver lower part gradient effect */
+.silver-lower-gradient {
+  background: linear-gradient(to bottom, #ffffff 0%, #ffffff 40%, #c0c0c0 80%, #a8a8a8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Premium Heading Styles - Main Sections Only */
+.heading-premium {
+  position: relative;
+  display: inline-block;
+}
+
+.heading-premium::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60%;
+  height: 3px;
+  background: linear-gradient(90deg, #2563eb 0%, #0ea5e9 50%, transparent 100%);
+  border-radius: 2px;
+}
+
+/* Gradient Text Effect */
+.heading-gradient {
+  background: linear-gradient(135deg, #1e40af 0%, #0369a1 50%, #0ea5e9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animation Duration Variants */
+.animate-ping-3s {
+  animation: ping 3s cubic-bezier(0, 0, 0.2, 1) infinite;
+}
+
+.animate-pulse-delay-2s {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  animation-delay: 2s;
+}
+
+.animate-scale-in-200ms {
+  animation: scaleIn 0.2s ease-out;
+}
+
+/* Cursor Styles */
+.cursor-zoom-in {
+  cursor: zoom-in;
+}
+
+/* 3D Transforms */
+.perspective-3d {
+  transform: translateZ(50px);
+}
+
+/* Dotted Background Patterns */
+.dotted-bg-48px {
+  background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.05) 1px, transparent 0);
+  background-size: 48px 48px;
+}
+
+.dotted-bg-32px {
+  background-image: radial-gradient(circle at 2px 2px, rgba(255, 255, 255, 0.1) 1px, transparent 0);
+  background-size: 32px 32px;
+}
+
+/* Scroll Behavior */
+.overscroll-contain {
+  overscroll-behavior: contain;
+}
+
+/* Mobile Tweak: Section Headers */
+@media (max-width: 768px) {
+  .heading-gradient-text {
+    font-size: clamp(2rem, 10vw, 3rem) !important;
   }
 }

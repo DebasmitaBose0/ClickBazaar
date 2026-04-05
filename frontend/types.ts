@@ -13,7 +13,9 @@ export enum Category {
   Luxury = 'Luxury',
   Wellness = 'Wellness',
   Gadgets = 'Gadgets',
-  Accessories = 'Accessories'
+  Accessories = 'Accessories',
+  Gaming = 'Gaming',
+  Collectors = 'Collectors'
 }
 
 export enum OrderStatus {
@@ -27,6 +29,7 @@ export enum UserRole {
   Customer = 'Customer',
   Admin = 'Admin'
 }
+
 
 export interface User {
   id: string;
@@ -58,6 +61,7 @@ export interface Product {
   isNewArrival?: boolean;
   isLimitedOffer?: boolean;
   rating?: number;
+  images?: string[];
 }
 
 export interface CartItem {
@@ -65,19 +69,23 @@ export interface CartItem {
   quantity: number;
 }
 
+export type OrderItem = CartItem & { priceAtPurchase: number; name: string };
+
 export interface Order {
   id: string;
   userId: string;
-  items: (CartItem & { priceAtPurchase: number; name: string })[];
+  items: OrderItem[];
   total: number;
   status: OrderStatus;
   shippingAddress: {
     fullName: string;
+    email: string;
     address: string;
     city: string;
     zip: string;
   };
   createdAt: string;
+  deliveryDate?: string;
 }
 
 export interface AppState {

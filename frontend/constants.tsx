@@ -3,378 +3,419 @@ import { Category, Product, User, UserRole } from './types';
 export const INITIAL_PRODUCTS: Product[] = [
   // --- FASHION (5 ITEMS) ---
   {
-    id: 'P1',
-    name: 'Selvedge Archival Denim',
+    id: 'P1-1',
+    name: "Allen Solly Men's Slim Fit Blazer",
     category: Category.Fashion,
-    price: 4999,
-    description: 'Heavyweight organic cotton denim, crafted for longevity and personal character.',
-    image: 'https://images.unsplash.com/photo-1542272454315-4c01d7abdf4a?auto=format&fit=crop&w=800&q=80',
+    price: 5999,
+    description: "Sharp tailored blazer in premium stretch fabric for formal occasions.",
+    image: "/images/items/Allen_Solly_Men's_Slim_Fit_Blazer_1.webp",
+    images: ["/images/items/Allen_Solly_Men's_Slim_Fit_Blazer_1.webp", "/images/items/Allen_Solly_Men's_Slim_Fit_Blazer_2.webp"],
     stock: 45, rating: 4.8, isBestSeller: true, isNewArrival: false, discount: 10
   },
   {
     id: 'P1-2',
-    name: 'Merino Wool Cardigan',
+    name: "BIBA Women's Silk Blend Saree",
     category: Category.Fashion,
-    price: 3499,
-    description: 'Fine-knit merino wool for climate-controlled layering.',
-    image: 'https://images.unsplash.com/photo-1620799140408-edc6dcb6d633?auto=format&fit=crop&w=800&q=80',
+    price: 4499,
+    description: "Elegant silk-blend saree with intricate embroidery and rich drape.",
+    image: "/images/items/BIBA_Women's_Silk_Blend_Saree_1.jpg",
+    images: ["/images/items/BIBA_Women's_Silk_Blend_Saree_1.jpg", "/images/items/BIBA_Women's_Silk_Blend_Saree_2.jpg"],
     stock: 20, rating: 4.7, isBestSeller: false, isNewArrival: true, isLimitedOffer: true, discount: 5
   },
   {
     id: 'P1-3',
-    name: 'Linen Utility Shirt',
+    name: 'H&M Oversized Hoodie',
     category: Category.Fashion,
-    price: 2899,
-    description: 'Breathable European linen with reinforced archival stitching.',
-    image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?auto=format&fit=crop&w=800&q=80',
-    stock: 30, rating: 4.5, isBestSeller: false, isNewArrival: false, discount: 0
+    price: 1999,
+    description: 'Soft cotton-blend hoodie in a relaxed oversized fit for everyday comfort.',
+    image: "/images/items/H&M_Oversized_Hoodie_1.png",
+    images: ["/images/items/H&M_Oversized_Hoodie_1.png", "/images/items/H&M_Oversized_Hoodie_2.png"],
+    stock: 30, rating: 4.5, isBestSeller: false, isNewArrival: false, isLimitedOffer: true, discount: 15
   },
   {
     id: 'P1-4',
-    name: 'Ocular Trench Coat',
+    name: "Levi's 511 Slim Fit Jeans",
     category: Category.Fashion,
-    price: 8999,
-    description: 'Water-resistant gabardine with modular internal storage.',
-    image: 'https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&w=800&q=80',
-    stock: 15, rating: 4.9, isBestSeller: true, isNewArrival: true, discount: 15
+    price: 3499,
+    description: 'Iconic slim-fit denim with superior stretch and reinforced stitching.',
+    image: "/images/items/Levi's_511_Slim_Fit_Jeans_1.webp",
+    images: ["/images/items/Levi's_511_Slim_Fit_Jeans_1.webp", "/images/items/Levi's_511_Slim_Fit_Jeans_2.webp", "/images/items/Levi's_511_Slim_Fit_Jeans.jpg"],
+    stock: 15, rating: 4.9, isBestSeller: true, isNewArrival: false, discount: 15
   },
   {
     id: 'P1-5',
-    name: 'Raw Indigo Jacket',
+    name: 'ZARA Faux Leather Jacket',
     category: Category.Fashion,
-    price: 5499,
-    description: 'Unwashed indigo dyed jacket that fades uniquely over time.',
-    image: 'https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=800&q=80',
+    price: 4999,
+    description: 'Sleek faux leather jacket with biker-inspired detailing and structured shoulders.',
+    image: "/images/items/ZARA_Faux_Leather_Jacket_1.jpg",
+    images: ["/images/items/ZARA_Faux_Leather_Jacket_1.jpg", "/images/items/ZARA_Faux_Leather_Jacket_2.jpg"],
     stock: 25, rating: 4.6, isBestSeller: false, isNewArrival: false, discount: 8
   },
 
   // --- ELECTRONICS (5 ITEMS) ---
   {
-    id: 'P2',
-    name: 'Chrono Series 01',
+    id: 'P2-1',
+    name: 'Sony Bravia 55-inch 4K Ultra HD Smart LED TV',
     category: Category.Electronics,
-    price: 12499,
-    description: 'Automated kinetic movement housed in surgical-grade steel.',
-    image: '/images/chrono-series-01.jpg',
+    price: 79990,
+    description: 'Stunning 4K Bravia XR processor with Dolby Vision and Google TV built-in.',
+    image: "/images/items/Sony_Bravia_55-inch_4K_Ultra_HD_Smart_LED_TV_1.jpg",
+    images: ["/images/items/Sony_Bravia_55-inch_4K_Ultra_HD_Smart_LED_TV_1.jpg", "/images/items/Sony_Bravia_55-inch_4K_Ultra_HD_Smart_LED_TV_2.jpeg", "/images/items/Sony_Bravia_55-inch_4K_Ultra_HD_Smart_LED_TV_3.webp"],
     stock: 12, rating: 4.9, isBestSeller: true, isNewArrival: false, isLimitedOffer: true, discount: 15
   },
   {
     id: 'P2-2',
-    name: 'Sonic ANC Headphones',
+    name: 'Apple MacBook Air M2',
     category: Category.Electronics,
-    price: 15999,
-    description: 'Hybrid noise cancellation with studio-grade archival sound stage.',
-    image: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=800&q=80',
-    stock: 40, rating: 4.8, isBestSeller: true, isNewArrival: true, discount: 10
+    price: 114900,
+    description: 'Apple M2 chip, 8GB RAM, 256GB SSD — ultra-thin and remarkably fast.',
+    image: "/images/items/Apple_MacBook_Air_M2_1.jpeg",
+    images: ["/images/items/Apple_MacBook_Air_M2_1.jpeg", "/images/items/Apple_MacBook_Air_M2_2.jpg"],
+    stock: 20, rating: 4.9, isBestSeller: true, isNewArrival: true, discount: 5
   },
   {
     id: 'P2-3',
-    name: 'Quantum Lens Camera',
+    name: 'Bose QuietComfort 45 Headphones',
     category: Category.Electronics,
-    price: 85999,
-    description: 'Mirrorless tech with vintage color science processing.',
-    image: 'https://images.unsplash.com/photo-1516035069371-29a1b244cc32?auto=format&fit=crop&w=800&q=80',
-    stock: 8, rating: 5.0, isBestSeller: false, isNewArrival: true, isLimitedOffer: true, discount: 5
+    price: 29900,
+    description: 'World-class noise cancellation with high-fidelity audio and all-day comfort.',
+    image: "/images/items/Bose_QuietComfort_45_Headphones_1.webp",
+    images: ["/images/items/Bose_QuietComfort_45_Headphones_1.webp", "/images/items/Bose_QuietComfort_45_Headphones_2.jpg"],
+    stock: 40, rating: 4.8, isBestSeller: false, isNewArrival: false, discount: 10
   },
   {
     id: 'P2-4',
-    name: 'Pulse Audio Streamer',
+    name: 'Apple iPad 10th Generation',
     category: Category.Electronics,
-    price: 7499,
-    description: 'High-fidelity audio streaming with minimalist industrial design.',
-    image: 'https://images.unsplash.com/photo-1546435770-a3e426bf472b?auto=format&fit=crop&w=800&q=80',
-    stock: 50, rating: 4.6, isBestSeller: false, isNewArrival: false, discount: 0
+    price: 44900,
+    description: '10.9-inch Liquid Retina display with A14 Bionic chip and 5G connectivity.',
+    image: "/images/items/Apple_iPad_10th_Generation_1.jpg",
+    images: ["/images/items/Apple_iPad_10th_Generation_1.jpg", "/images/items/Apple_iPad_10th_Generation_2.webp", "/images/items/Apple_iPad_10th_Generation_3.jpg"],
+    stock: 18, rating: 4.8, isBestSeller: false, isNewArrival: true, isLimitedOffer: true, discount: 7
   },
   {
     id: 'P2-5',
-    name: 'Solar Power Array',
+    name: 'JBL Charge 5 Bluetooth Speaker',
     category: Category.Electronics,
-    price: 4599,
-    description: 'Foldable monocrystalline panels for archival energy independence.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq-RHMq0eO2Eh6RD6bl6K44OUcrXj4XNGmDg&s',
-    stock: 35, rating: 4.4, isBestSeller: false, isNewArrival: false, discount: 20
-  },
-
-  // --- HOME (5 ITEMS) ---
-  {
-    id: 'P3',
-    name: 'Arctic Humidifier',
-    category: Category.Home,
-    price: 3299,
-    description: 'Ultrasonic moisture diffusion with archival pine scent compatibility.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4ZHtNnHe0ynq4IVvLnwgw5ogkQUFE5Q1g8w&s=10',
-    stock: 28, rating: 4.6, isBestSeller: false, isNewArrival: true, discount: 5
-  },
-  {
-    id: 'P3-2',
-    name: 'Abstract Clay Vessel',
-    category: Category.Home,
-    price: 1899,
-    description: 'Hand-thrown stoneware with reactive matte glaze finish.',
-    image: 'https://images.unsplash.com/photo-1578749556568-bc2c40e68b61?auto=format&fit=crop&w=800&q=80',
-    stock: 15, rating: 4.9, isBestSeller: true, isNewArrival: false, discount: 0
-  },
-  {
-    id: 'P3-3',
-    name: 'Concrete Desk Lamp',
-    category: Category.Home,
-    price: 4299,
-    description: 'Brutalist aesthetic with adjustable warm-dim LED technology.',
-    image: 'https://images.unsplash.com/photo-1507473885765-e6ed057f782c?auto=format&fit=crop&w=800&q=80',
-    stock: 12, rating: 4.7, isBestSeller: false, isNewArrival: true, isLimitedOffer: true, discount: 10
-  },
-  {
-    id: 'P3-4',
-    name: 'Waffle Linen Throw',
-    category: Category.Home,
-    price: 2499,
-    description: 'Stone-washed Belgian linen for breathable comfort.',
-    image: 'https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/Q84088s.jpg?im=Resize,width=750',
-    stock: 40, rating: 4.5, isBestSeller: false, isNewArrival: false, discount: 5
-  },
-  {
-    id: 'P3-5',
-    name: 'Aromatic Diffuser Kit',
-    category: Category.Home,
-    price: 1299,
-    description: 'Signature archival scents: Cedar, Smoke, and Moss.',
-    image: 'https://houseofaroma.in/wp-content/uploads/2023/02/aroma-diffuser-set-combo-pack3.webp',
-    stock: 60, rating: 4.8, isBestSeller: true, isNewArrival: false, discount: 0
+    price: 14999,
+    description: 'IP67 waterproof, 20hr playtime, built-in power bank feature for on-the-go.',
+    image: "/images/items/JBL_Charge_5_Bluetooth_Speaker_1.jpg",
+    images: ["/images/items/JBL_Charge_5_Bluetooth_Speaker_1.jpg", "/images/items/JBL_Charge_5_Bluetooth_Speaker_2.webp"],
+    stock: 50, rating: 4.7, isBestSeller: false, isNewArrival: false, discount: 0
   },
 
   // --- MOBILE (5 ITEMS) ---
   {
-    id: 'P6',
-    name: 'Nebula X-Phone',
+    id: 'P6-1',
+    name: 'Apple iPhone 15 Pro Max',
     category: Category.Mobile,
-    price: 74999,
-    description: 'Titanium build with advanced neural processing.',
-    image: 'https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?auto=format&fit=crop&w=800&q=80',
+    price: 159900,
+    description: 'Titanium design, A17 Pro chip, 48MP camera system, and Action Button.',
+    image: "/images/items/Apple_iPhone_15_Pro_Max.jpg",
+    images: ["/images/items/Apple_iPhone_15_Pro_Max.jpg", "/images/items/Applei-Phone-15-Pro-Max.jpg"],
     stock: 15, rating: 5.0, isBestSeller: true, isNewArrival: true, isLimitedOffer: false, discount: 4
   },
   {
     id: 'P6-2',
-    name: 'Vertex 12 Pro',
+    name: 'Samsung Galaxy S24 Ultra',
     category: Category.Mobile,
-    price: 68999,
-    description: 'Carbon-fiber frame with liquid-cooled processor.',
-    image: 'https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=800&q=80',
+    price: 129999,
+    description: 'Integrated S Pen, 200MP camera, Galaxy AI features on a titanium frame.',
+    image: "/images/items/Samsung_Galaxy_S24_Ultra_1.webp",
+    images: ["/images/items/Samsung_Galaxy_S24_Ultra_1.webp", "/images/items/Samsung_Galaxy_S24_Ultra_2.webp", "/images/items/Samsung_Galaxy_S24_Ultra.png"],
     stock: 20, rating: 4.7, isBestSeller: false, isNewArrival: false, discount: 5
   },
   {
     id: 'P6-3',
-    name: 'Fold X-Legacy',
+    name: 'OnePlus 12 5G',
     category: Category.Mobile,
-    price: 89999,
-    description: 'Durable hinge tech with seamless archival transition.',
-    image: 'https://robbreport.com/wp-content/uploads/2026/01/samsung-galaxy-z-trifold.jpg?w=480',
+    price: 64999,
+    description: 'Snapdragon 8 Gen 3, Hasselblad camera, and 100W SUPERVOOC charging.',
+    image: "/images/items/OnePlus_12_5G_1.webp",
+    images: ["/images/items/OnePlus_12_5G_1.webp", "/images/items/OnePlus_12_5G_2.jpg"],
     stock: 10, rating: 4.8, isBestSeller: true, isNewArrival: true, discount: 10
   },
   {
     id: 'P6-4',
-    name: 'Neon Mini 5G',
+    name: 'Redmi Note 13 Pro+',
     category: Category.Mobile,
-    price: 35999,
-    description: 'Compact power with ultra-bright display node.',
-    image: 'https://images.unsplash.com/photo-1523206489230-c012c64b2b48?auto=format&fit=crop&w=800&q=80',
+    price: 31999,
+    description: '200MP camera, 120W HyperCharge, Snapdragon 7s Gen 2 processor.',
+    image: "/images/items/Redmi_Note_13_Pro+_1.jpg",
+    images: ["/images/items/Redmi_Note_13_Pro+_1.jpg", "/images/items/Redmi_Note_13_Pro+_2.jpg"],
     stock: 35, rating: 4.5, isBestSeller: false, isNewArrival: false, discount: 0
   },
   {
     id: 'P6-5',
-    name: 'Titan Desk Dock',
+    name: 'ASUS ROG Phone 8',
     category: Category.Mobile,
-    price: 5499,
-    description: 'Magnetic charging with industrial steel finish.',
-    image: 'https://elementcontract.com/wp-content/uploads/2022/04/titan-pro-t32-main.jpg',
-    stock: 50, rating: 4.6, isBestSeller: false, isNewArrival: false, discount: 5
-  },
-
-  // --- ACCESSORIES (5 ITEMS) ---
-  {
-    id: 'P7',
-    name: 'Archival Canvas Tote',
-    category: Category.Accessories,
-    price: 1299,
-    description: 'Reinforced 24oz canvas for daily utility and understated elegance.',
-    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
-    stock: 100, rating: 4.4, isBestSeller: false, isNewArrival: false, discount: 0
-  },
-  {
-    id: 'P7-2',
-    name: 'Shell Wallet 02',
-    category: Category.Accessories,
-    price: 4500,
-    description: 'Minimalist aluminum sleeve with RFID shielding.',
-    image: 'https://images.unsplash.com/photo-1627123424574-724758594e93?auto=format&fit=crop&w=800&q=80',
-    stock: 60, rating: 4.8, isBestSeller: true, isNewArrival: true, discount: 10
-  },
-  {
-    id: 'P7-3',
-    name: 'Brass Key Clip',
-    category: Category.Accessories,
-    price: 899,
-    description: 'Solid brass hardware with hand-stitched leather pull.',
-    image: 'https://images.unsplash.com/photo-1606240217272-9b2f671f65ca?auto=format&fit=crop&w=800&q=80',
-    stock: 150, rating: 4.5, isBestSeller: false, isNewArrival: false, discount: 0
-  },
-  {
-    id: 'P7-4',
-    name: 'Wool Laptop Sleeve',
-    category: Category.Accessories,
-    price: 2200,
-    description: 'Natural felt protection with vegetable-tanned accents.',
-    image: 'https://images.unsplash.com/photo-1544816155-12df9643f363?auto=format&fit=crop&w=800&q=80',
-    stock: 45, rating: 4.6, isBestSeller: false, isNewArrival: true, discount: 5
-  },
-  {
-    id: 'P7-5',
-    name: 'Titanium Pen 01',
-    category: Category.Accessories,
-    price: 5999,
-    description: 'Precision machined body with archival pressurized ink.',
-    image: 'https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&w=800&q=80',
-    stock: 25, rating: 4.9, isBestSeller: true, isNewArrival: false, discount: 0
-  },
-
-  // --- GADGETS (5 ITEMS) ---
-  {
-    id: 'P8',
-    name: 'Graphene Smart Watch',
-    category: Category.Gadgets,
-    price: 18999,
-    description: 'Biometric tracking with revolutionary 30-day battery life.',
-    image: 'https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcQoVBB9Kp6Hd9UPbQQoNTqk6bKo1KrArZm7Xd1X4Lls26ofrjveP5yj9YArA8edgA8AT8RavyS6h7OIbaJiBcUSbdyxn0oIndwKdPSsFUVvGzskArq76pJT',
-    stock: 40, rating: 4.7, isBestSeller: true, isNewArrival: false, isLimitedOffer: true, discount: 12
-  },
-  {
-    id: 'P8-2',
-    name: 'Retro Game Terminal',
-    category: Category.Gadgets,
-    price: 8499,
-    description: 'Handheld emulator with high-refresh OLED panel.',
-    image: 'https://images.unsplash.com/photo-1592155931584-901ac15763e3?auto=format&fit=crop&w=800&q=80',
-    stock: 30, rating: 4.6, isBestSeller: false, isNewArrival: true, discount: 5
-  },
-  {
-    id: 'P8-3',
-    name: 'Smart Drone Unit',
-    category: Category.Gadgets,
-    price: 42999,
-    description: 'Autonomous flight paths with 4K archival footage capability.',
-    image: 'https://images.unsplash.com/photo-1507582020474-9a35b7d455d9?auto=format&fit=crop&w=800&q=80',
-    stock: 12, rating: 4.8, isBestSeller: true, isNewArrival: true, discount: 0
-  },
-  {
-    id: 'P8-4',
-    name: 'E-Ink Reader Pro',
-    category: Category.Gadgets,
-    price: 15499,
-    description: 'Zero eyestrain display with modular dictionary nodes.',
-    image: 'https://images.unsplash.com/photo-1560415755-bd80d06eda60?auto=format&fit=crop&w=800&q=80',
-    stock: 50, rating: 4.7, isBestSeller: false, isNewArrival: false, discount: 10
-  },
-  {
-    id: 'P8-5',
-    name: 'Mechanical Macro Pad',
-    category: Category.Gadgets,
-    price: 3999,
-    description: 'Customizable keys with clear housing and RGB telemetry.',
-    image: 'https://images.unsplash.com/photo-1595225476474-87563907a212?auto=format&fit=crop&w=800&q=80',
-    stock: 40, rating: 4.5, isBestSeller: false, isNewArrival: false, discount: 0
+    price: 89999,
+    description: 'Snapdragon 8 Gen 3, 165Hz AMOLED display, 6000mAh gaming-grade battery.',
+    image: "/images/items/ASUS_ROG_Phone_8_1.png",
+    images: ["/images/items/ASUS_ROG_Phone_8_1.png", "/images/items/ASUS_ROG_Phone_8_2.webp"],
+    stock: 12, rating: 4.8, isBestSeller: true, isNewArrival: true, discount: 8
   },
 
   // --- BEAUTY (5 ITEMS) ---
   {
     id: 'P5-1',
-    name: 'Ocean Mineral Serum',
+    name: 'Mamaearth Skin Care Kit',
     category: Category.Beauty,
-    price: 2499,
-    description: 'Deep hydration with sustainably sourced sea botanicals.',
-    image: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?auto=format&fit=crop&w=800&q=80',
+    price: 1299,
+    description: 'Natural ingredients, toxin-free formulas for radiant, healthy skin.',
+    image: "/images/items/Mamaearth_Skin_Care_Kit_1.png",
+    images: ["/images/items/Mamaearth_Skin_Care_Kit_1.png", "/images/items/Mamaearth_Skin_Care_Kit_2.png"],
     stock: 55, rating: 4.7, isBestSeller: true, isNewArrival: false, discount: 5
   },
   {
     id: 'P5-2',
-    name: 'Botanical Night Oil',
+    name: 'Minimalist 10% Vitamin C Serum',
     category: Category.Beauty,
-    price: 3200,
-    description: 'Repairing blend of archival florals and essential lipids.',
-    image: 'https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&w=800&q=80',
-    stock: 30, rating: 4.9, isBestSeller: false, isNewArrival: true, discount: 0
+    price: 699,
+    description: 'Stable Vitamin C derivative for brightening and anti-oxidant skin protection.',
+    image: "/images/items/Minimalist_10%_Vitamin_C_Serum_1.jpg",
+    images: ["/images/items/Minimalist_10%_Vitamin_C_Serum_1.jpg", "/images/items/Minimalist_10%_Vitamin_C_Serum_2.webp"],
+    stock: 80, rating: 4.6, isBestSeller: false, isNewArrival: true, discount: 0
   },
   {
     id: 'P5-3',
-    name: 'Charcoal Detox Mask',
+    name: 'Maybelline New York Super Stay Matte Ink Lipstick',
     category: Category.Beauty,
-    price: 1599,
-    description: 'Active carbon complex for deep archival pore cleansing.',
-    image: 'https://images.unsplash.com/photo-1596755389378-c31d21fd1273?auto=format&fit=crop&w=800&q=80',
-    stock: 80, rating: 4.5, isBestSeller: false, isNewArrival: false, discount: 10
+    price: 499,
+    description: '16-hour long wear matte liquid lipstick in bold, rich shades.',
+    image: "/images/items/Maybelline_New_York_Super_Stay_Matte_Ink_Lipstick_1.webp",
+    images: ["/images/items/Maybelline_New_York_Super_Stay_Matte_Ink_Lipstick_1.webp", "/images/items/Maybelline_New_York_Super_Stay_Matte_Ink_Lipstick_2.webp", "/images/items/Maybelline_New_York_Super_Stay_Matte_Ink_Lipstick_3.webp"],
+    stock: 100, rating: 4.5, isBestSeller: false, isNewArrival: false, discount: 10
   },
   {
     id: 'P5-4',
-    name: 'Vitamin C Glow Kit',
+    name: 'Neutrogena Ultra Sheer Sunscreen SPF 50+',
     category: Category.Beauty,
-    price: 4599,
-    description: 'Brightening regimen for skin revitalization.',
-    image: 'https://dermatouch.com/cdn/shop/files/Bright-_-Glow-Kit.png?v=1766644039',
-    stock: 25, rating: 4.8, isBestSeller: true, isNewArrival: true, discount: 15
+    price: 499,
+    description: 'Lightweight, non-greasy broad-spectrum UVA/UVB sun protection for daily use.',
+    image: "/images/items/Neutrogena_Ultra_Sheer_Sunscreen_SPF_50+_1.webp",
+    images: ["/images/items/Neutrogena_Ultra_Sheer_Sunscreen_SPF_50+_1.webp", "/images/items/Neutrogena_Ultra_Sheer_Sunscreen_SPF_50+_2.jpg", "/images/items/Neutrogena_Ultra_Sheer_Sunscreen_SPF_50+_3.webp"],
+    stock: 120, rating: 4.8, isBestSeller: true, isNewArrival: true, discount: 12
   },
   {
     id: 'P5-5',
-    name: 'Matte Clay Pomade',
+    name: "L'Oréal Paris Revitalift Hyaluronic Acid Serum",
     category: Category.Beauty,
     price: 999,
-    description: 'Strong hold hair styling with natural matte finish.',
-    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsS4mtL8dm8oQjPDn1gp3tcoq9uvQWUsKYDQ&s',
-    stock: 100, rating: 4.4, isBestSeller: false, isNewArrival: false, discount: 0
+    description: 'Pure 1.5% hyaluronic acid for intense plumping and lasting hydration.',
+    image: "/images/items/L'Oréal_Paris_Revitalift_Hyaluronic_Acid_Serum_1.png",
+    images: ["/images/items/L'Oréal_Paris_Revitalift_Hyaluronic_Acid_Serum_1.png", "/images/items/L'Oréal_Paris_Revitalift_Hyaluronic_Acid_Serum_2.jpg"],
+    stock: 60, rating: 4.9, isBestSeller: false, isNewArrival: false, discount: 0
   },
 
   // --- GROCERY (5 ITEMS) ---
   {
     id: 'P4-1',
-    name: 'Artisan Roast Coffee',
+    name: 'Daawat Rozana Basmati Rice',
     category: Category.Grocery,
-    price: 899,
-    description: 'Single-origin beans with notes of dark chocolate and smoke.',
-    image: 'https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80',
+    price: 500,
+    description: 'Long-grain basmati rice with a natural fragrance, aged to perfection.',
+    image: "/images/items/Daawat_Rozana_Basmati_Rice.jpg",
+    images: ["/images/items/Daawat_Rozana_Basmati_Rice.jpg", "/images/items/Daawat_Rozana_Basmati_Rice.webp"],
     stock: 60, rating: 4.9, isBestSeller: true, isNewArrival: false, discount: 5
   },
   {
     id: 'P4-2',
-    name: 'Organic Honeycomb',
+    name: 'Figaro Extra Virgin Olive Oil',
     category: Category.Grocery,
     price: 1200,
-    description: 'Wildflower honey direct from archival forest hives.',
-    image: 'https://images.unsplash.com/photo-1587049352846-4a222e784d38?auto=format&fit=crop&w=800&q=80',
-    stock: 40, rating: 4.8, isBestSeller: false, isNewArrival: true, discount: 0
+    description: 'First cold-pressed Spanish olives, heart-healthy and rich in antioxidants.',
+    image: "/images/items/Figaro_Extra_Virgin_Olive_Oil_Usage.jpg",
+    images: ["/images/items/Figaro_Extra_Virgin_Olive_Oil_Usage.jpg", "/images/items/Figaro_Extra_Virgin_Olive_Oil.jpg"],
+    stock: 45, rating: 4.8, isBestSeller: false, isNewArrival: true, discount: 0
   },
   {
     id: 'P4-3',
-    name: 'Aged Balsamic Glaze',
+    name: 'Aashirvaad Whole Wheat Atta',
     category: Category.Grocery,
-    price: 1599,
-    description: '12-year oak barrel-aged vinegar with rich viscosity.',
-    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80',
-    stock: 25, rating: 4.7, isBestSeller: false, isNewArrival: false, discount: 10
+    price: 400,
+    description: 'Stone-ground whole wheat flour, perfect for traditional rotis and bread.',
+    image: "/images/items/Aashirvaad_Whole_Wheat_Atta.jpg",
+    images: ["/images/items/Aashirvaad_Whole_Wheat_Atta.jpg", "/images/items/Aashirvaad_Whole_Wheat_Atta.webp"],
+    stock: 80, rating: 4.7, isBestSeller: false, isNewArrival: false, discount: 0
   },
   {
     id: 'P4-4',
-    name: 'Smoked Sea Salt',
+    name: 'Patanjali Honey',
     category: Category.Grocery,
-    price: 499,
-    description: 'Cold-smoked over hickory wood for artisanal seasoning.',
-    image: '/images/smoked-sea-salt.jpg',
+    price: 300,
+    description: 'Pure natural multi-flora honey with no added sugar or preservatives.',
+    image: "/images/items/Patanjali_Honey_Usage.webp",
+    images: ["/images/items/Patanjali_Honey_Usage.webp", "/images/items/Patanjali_Honey.webp"],
     stock: 150, rating: 4.6, isBestSeller: false, isNewArrival: false, discount: 0
   },
   {
     id: 'P4-5',
-    name: 'Cold Pressed Olive Oil',
+    name: 'Nutraj Signature Dry Fruits Mix',
     category: Category.Grocery,
-    price: 1899,
-    description: 'Premium extra virgin oil with peppery archival finish.',
-    image: 'https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?auto=format&fit=crop&w=800&q=80',
+    price: 1500,
+    description: 'Premium mix of almonds, cashews, walnuts, and raisins for healthy snacking.',
+    image: "/images/items/Nutraj_Signature_Dry_Fruits_Mix_Usage.webp",
+    images: ["/images/items/Nutraj_Signature_Dry_Fruits_Mix_Usage.webp", "/images/items/Nutraj_Signature_Dry_Fruits_Mix.webp"],
     stock: 45, rating: 4.9, isBestSeller: true, isNewArrival: true, discount: 0
+  },
+
+  // --- HOME (5 ITEMS) ---
+  {
+    id: 'P3-1',
+    name: 'Urban Ladder Fabric Sofa Set',
+    category: Category.Home,
+    price: 45999,
+    description: 'Contemporary 3-seater fabric sofa with high-density foam cushions.',
+    image: "/images/items/Urban_Ladder_Fabric_Sofa_Set_1.png",
+    images: ["/images/items/Urban_Ladder_Fabric_Sofa_Set_1.png", "/images/items/Urban_Ladder_Fabric_Sofa_Set_2.png"],
+    stock: 8, rating: 4.7, isBestSeller: true, isNewArrival: false, discount: 12
+  },
+  {
+    id: 'P3-2',
+    name: 'IKEA Ribba Wall Frame Set',
+    category: Category.Home,
+    price: 2499,
+    description: 'Set of matching gallery frames for creating a curated wall display.',
+    image: "/images/items/IKEA_Ribba_Wall_Frame_Set_1.jpg",
+    images: ["/images/items/IKEA_Ribba_Wall_Frame_Set_1.jpg", "/images/items/IKEA_Ribba_Wall_Frame_Set_2.jpg"],
+    stock: 40, rating: 4.6, isBestSeller: false, isNewArrival: true, discount: 0
+  },
+  {
+    id: 'P3-3',
+    name: 'Philips Hue Smart LED Lights',
+    category: Category.Home,
+    price: 4999,
+    description: 'Voice-controlled smart bulbs with 16 million colors and scheduling.',
+    image: "/images/items/Philips_Hue_Smart_LED_Lights_1.jpg",
+    images: ["/images/items/Philips_Hue_Smart_LED_Lights_1.jpg", "/images/items/Philips_Hue_Smart_LED_Lights_2.webp"],
+    stock: 55, rating: 4.8, isBestSeller: false, isNewArrival: false, isLimitedOffer: true, discount: 10
+  },
+  {
+    id: 'P3-4',
+    name: 'Prestige Kitchen Appliance Combo',
+    category: Category.Home,
+    price: 8999,
+    description: 'Comprehensive kitchen combo including pressure cooker, mixer and induction.',
+    image: "/images/items/Prestige_Kitchen_Appliance_Combo_1.webp",
+    images: ["/images/items/Prestige_Kitchen_Appliance_Combo_1.webp", "/images/items/Prestige_Kitchen_Appliance_Combo_2.jpg"],
+    stock: 22, rating: 4.7, isBestSeller: true, isNewArrival: true, discount: 5
+  },
+  {
+    id: 'P3-5',
+    name: 'Bombay Dyeing Premium Bedsheet Set',
+    category: Category.Home,
+    price: 1999,
+    description: '100% cotton king-size bedsheet with 2 pillow covers, 300 thread count.',
+    image: "/images/items/Bombay_Dyeing_Premium_Bedsheet_Set_1.jpg",
+    images: ["/images/items/Bombay_Dyeing_Premium_Bedsheet_Set_1.jpg", "/images/items/Bombay_Dyeing_Premium_Bedsheet_Set_2.jpg"],
+    stock: 70, rating: 4.5, isBestSeller: false, isNewArrival: false, discount: 0
+  },
+
+  // --- ACCESSORIES (6 ITEMS) ---
+  {
+    id: 'P7-1',
+    name: "Ray-Ban Aviator Classic Sunglasses",
+    category: Category.Accessories,
+    price: 8499,
+    description: 'Iconic gold-tone metal frame with polarized green crystal lenses.',
+    image: "/images/items/Ray-Ban_Aviator_Classic_Sunglasses_1.png",
+    images: ["/images/items/Ray-Ban_Aviator_Classic_Sunglasses_1.png", "/images/items/Ray-Ban_Aviator_Classic_Sunglasses_2.webp", "/images/items/Ray-Ban_Aviator_Classic_Sunglasses_3.webp"],
+    stock: 30, rating: 4.9, isBestSeller: true, isNewArrival: false, discount: 7
+  },
+  {
+    id: 'P7-2',
+    name: "Fossil Men's Grant Chronograph Watch",
+    category: Category.Accessories,
+    price: 12995,
+    description: 'Three-eye chronograph, stainless steel case, genuine leather strap.',
+    image: "/images/items/Fossil_Men's_Grant_Chronograph_Watch_1.webp",
+    images: ["/images/items/Fossil_Men's_Grant_Chronograph_Watch_1.webp", "/images/items/Fossil_Men's_Grant_Chronograph_Watch_2.webp"],
+    stock: 20, rating: 4.8, isBestSeller: true, isNewArrival: true, isLimitedOffer: true, discount: 10
+  },
+
+  {
+    id: 'P7-4',
+    name: 'Skybags Casual Backpack',
+    category: Category.Accessories,
+    price: 1999,
+    description: 'Spacious water-resistant backpack with laptop compartment and USB port.',
+    image: "/images/items/Skybags_Casual_Backpack_1.webp",
+    images: ["/images/items/Skybags_Casual_Backpack_1.webp", "/images/items/Skybags_Casual_Backpack_2.webp", "/images/items/Skybags_Casual_Backpack_3.webp"],
+    stock: 80, rating: 4.4, isBestSeller: false, isNewArrival: true, discount: 0
+  },
+  {
+    id: 'P7-5',
+    name: 'WildHorn Leather Wallet',
+    category: Category.Accessories,
+    price: 1499,
+    description: 'Genuine leather billfold wallet with RFID blocking and multiple card slots.',
+    image: "/images/items/WildHorn_Leather_Wallet_1.jpg",
+    images: ["/images/items/WildHorn_Leather_Wallet_1.jpg", "/images/items/WildHorn_Leather_Wallet_2.webp", "/images/items/WildHorn_Leather_Wallet_3.jpg"],
+    stock: 60, rating: 4.6, isBestSeller: false, isNewArrival: false, discount: 0
+  },
+  {
+    id: 'P7-6',
+    name: 'Tanishq Minimal Gold Pendant',
+    category: Category.Accessories,
+    price: 14500,
+    description: 'Delicate 18K gold pendant with minimalist design, perfect for daily elegance.',
+    image: "/images/items/Tanishq_Minimal_Gold_Pendant_1.webp",
+    images: ["/images/items/Tanishq_Minimal_Gold_Pendant_1.webp", "/images/items/Tanishq_Minimal_Gold_Pendant_2.webp"],
+    stock: 15, rating: 4.9, isBestSeller: false, isNewArrival: true, isLimitedOffer: true, discount: 0
+  },
+
+  // --- GADGETS (5 ITEMS) ---
+  {
+    id: 'P8-1',
+    name: 'Meta Quest 2 VR Headset',
+    category: Category.Gadgets,
+    price: 29999,
+    description: 'All-in-one VR gaming with 128GB storage, hand tracking and premium audio.',
+    image: "/images/items/Meta_Quest_2_VR_Headset_1.webp",
+    images: ["/images/items/Meta_Quest_2_VR_Headset_1.webp", "/images/items/Meta_Quest_2_VR_Headset_2.jpg"],
+    stock: 15, rating: 4.7, isBestSeller: true, isNewArrival: false, isLimitedOffer: true, discount: 12
+  },
+  {
+    id: 'P8-2',
+    name: 'Mi Power Bank 3i 20000mAh',
+    category: Category.Gadgets,
+    price: 1999,
+    description: '18W fast charging, triple output ports, 20000mAh capacity for all devices.',
+    image: "/images/items/Mi_Power_Bank_3i_20000mAh_1.jpg",
+    images: ["/images/items/Mi_Power_Bank_3i_20000mAh_1.jpg", "/images/items/Mi_Power_Bank_3i_20000mAh_2.jpg"],
+    stock: 100, rating: 4.6, isBestSeller: false, isNewArrival: false, discount: 5
+  },
+  {
+    id: 'P8-3',
+    name: 'boAt Airdopes 141',
+    category: Category.Gadgets,
+    price: 999,
+    description: 'True wireless earbuds with ENx noise isolation, 42hr total playback.',
+    image: "/images/items/boAt_Airdopes_141_1.jpg",
+    images: ["/images/items/boAt_Airdopes_141_1.jpg", "/images/items/boAt_Airdopes_141_2.webp", "/images/items/boAt_Airdopes_141_3.webp"],
+    stock: 200, rating: 4.4, isBestSeller: false, isNewArrival: true, discount: 0
+  },
+  {
+    id: 'P8-4',
+    name: 'Amazon Echo Dot (5th Gen)',
+    category: Category.Gadgets,
+    price: 5499,
+    description: 'Smart speaker with Alexa, improved bass, motion detection and temperature sensor.',
+    image: "/images/items/Amazon_Echo_Dot_(5th_Gen)_1.jpg",
+    images: ["/images/items/Amazon_Echo_Dot_(5th_Gen)_1.jpg", "/images/items/Amazon_Echo_Dot_(5th_Gen)_2.jpg"],
+    stock: 75, rating: 4.5, isBestSeller: true, isNewArrival: false, discount: 15
+  },
+  {
+    id: 'P7-3-G',
+    name: 'Apple watch Series 9',
+    category: Category.Gadgets,
+    price: 41900,
+    description: 'Advanced health sensors, S9 chip, Double Tap gesture, Always-On Retina display.',
+    image: "/images/items/Apple_Watch_Series_9_1.webp",
+    images: ["/images/items/Apple_Watch_Series_9_1.webp", "/images/items/Apple_Watch_Series_9_2.jpg"],
+    stock: 25, rating: 5.0, isBestSeller: true, isNewArrival: false, discount: 5
   }
 ];
 
