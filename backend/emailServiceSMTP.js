@@ -241,8 +241,9 @@ export async function sendSupportInquiry(name, email, message) {
           .logo-box { padding: 8px !important; font-size: 16px !important; }
           .main-heading { font-size: 24px !important; }
           .content-box { padding: 20px !important; }
-          .user-info { flex-direction: column !important; }
-          .info-item { width: 100% !important; margin-bottom: 16px !important; gap: 16px !important; padding: 20px !important; }
+          .user-info { display: block !important; width: 100% !important; margin-bottom: 24px !important; }
+          .info-item { display: block !important; width: 100% !important; margin-bottom: 12px !important; }
+          .info-spacer { display: none !important; }
           .icon-text-container { gap: 16px !important; padding: 20px !important; }
         }
       </style>
@@ -257,26 +258,36 @@ export async function sendSupportInquiry(name, email, message) {
           <p style="margin: 12px 0 0 0; font-size: 14px; color: #64748b;">Customer assistance request received</p>
         </div>
         
-        <div class="user-info" style="display: flex; gap: 32px; margin-bottom: 32px;">
-          <div class="info-item" style="flex: 1; background-color: #f0fdf4; padding: 20px; border-radius: 12px; border: 1px solid #dcfce7; display: flex; align-items: flex-start; gap: 16px;">
-            <svg style="width: 24px; height: 24px; margin-top: 4px; flex-shrink: 0; fill: #15803d;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M224 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64zm-45.7 48C161.6 304 0 404.3 0 544c0 46.1 14.6 89.3 39.6 125.2c11.5 15.3 29.4 25 49.9 25h246c20.5 0 38.4-9.7 49.9-25C429.4 633.3 544 533 544 400c0-11.7-7-21.7-17-27c-10.3-5.5-23-5.5-33 0c-15 8-34 8-49 0s-34-8-49 0c-15 8-34 8-49 0c-10-5.5-22.7-5.5-33 0C271 378.3 264 388.3 264 400c0 36.6-14.6 69.8-38.4 93.6c-9.2 9.2-24.2 9.2-33.4 0C177.6 469.8 160 437.2 160 400c0-57 42.3-104.5 97.4-112.5c-3.3-7.4-5.4-15.4-5.4-23.9c0-35.3 28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64c0 .1 0 .1 0 .2c0 .1 0 .1 0 .2h0c0 35.3-28.7 64-64 64s-64-28.7-64-64z"/></svg>
-            <div>
-              <p style="font-size: 11px; color: #15803d; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 8px 0;">FROM</p>
-              <p style="font-size: 14px; color: #166534; font-weight: 700; margin: 0 0 4px 0;">${name}</p>
-              <p style="font-size: 13px; color: #4b7c0f; margin: 0;"><a href="mailto:${email}" style="color: #059669; text-decoration: none; font-weight: 600;">${email}</a></p>
+        <div class="user-info" style="margin-bottom: 32px; font-size: 0; text-align: center; width: 100%;">
+          <!--[if mso]><table role="presentation" border="0" cellspacing="0" cellpadding="0" width="100%"><tr><td width="250" valign="top"><![endif]-->
+          <div class="info-item" style="display: inline-block; width: 250px; vertical-align: middle; background-color: #f0fdf4; padding: 20px; border-radius: 12px; border: 1px solid #dcfce7; box-sizing: border-box; text-align: left; margin: 5px;">
+            <div style="display: table; width: 100%;">
+              <div style="display: table-cell; width: 32px; vertical-align: middle;">
+                <img src="https://cdn-icons-png.flaticon.com/128/1144/1144760.png" style="width: 24px; height: 24px; display: block;" alt="User" />
+              </div>
+              <div style="display: table-cell; vertical-align: middle; padding-left: 12px;">
+                <p style="font-size: 10px; color: #15803d; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 4px 0; line-height: 1;">FROM</p>
+                <p style="font-size: 14px; color: #166534; font-weight: 700; margin: 0 0 2px 0; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${name}</p>
+                <p style="font-size: 12px; color: #4b7c0f; margin: 0; line-height: 1.2; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;"><a href="mailto:${email}" style="color: #059669; text-decoration: none;">${email}</a></p>
+              </div>
             </div>
           </div>
-          <div class="info-item" style="flex: 1; background-color: #eff6ff; padding: 20px; border-radius: 12px; border: 1px solid #dbeafe; display: flex; align-items: flex-start; gap: 16px;">
-            <div style="flex-shrink: 0;">
-              <svg style="width: 24px; height: 24px; fill: #0c4a6e; margin-bottom: 8px; margin-top: 4px;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M96 32C60.7 32 32 60.7 32 96V416c0 35.3 28.7 64 64 64H320v64H160c-17.7 0-32 14.3-32 32s14.3 32 32 32H480c17.7 0 32-14.3 32-32s-14.3-32-32-32H320v-64H544c35.3 0 64-28.7 64-64V96c0-35.3-28.7-64-64-64H96zm0 64H544V416H96V96z"/></svg>
-              <svg style="width: 24px; height: 24px; fill: #0c4a6e;" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 640"><path d="M224 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64zm92.7 57.6c26.9-13.3 56.1-20.6 87.3-20.6s60.4 7.3 87.3 20.6c24.9 12.3 40.8 27.2 48.9 40.5V160c0-8.8-7.2-16-16-16H192c-8.8 0-16 7.2-16 16v193.6c8.1-13.2 24-28.2 48.9-40.5zM352 256c-35.3 0-64-28.7-64-64s28.7-64 64-64s64 28.7 64 64s-28.7 64-64 64z"/></svg>
-            </div>
-            <div>
-              <p style="font-size: 11px; color: #0c4a6e; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 8px 0;">DATE & TIME</p>
-              <p style="font-size: 14px; color: #0c4a6e; font-weight: 700; margin: 0;">${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
-              <p style="font-size: 13px; color: #075985; margin: 0;">${new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+          <!--[if mso]></td><td width="20">&nbsp;</td><td width="250" valign="top"><![endif]-->
+          <div class="info-item" style="display: inline-block; width: 250px; vertical-align: middle; background-color: #eff6ff; padding: 20px; border-radius: 12px; border: 1px solid #dbeafe; box-sizing: border-box; text-align: left; margin: 5px;">
+            <div style="display: table; width: 100%;">
+              <div style="display: table-cell; width: 32px; vertical-align: middle;">
+                <div style="background-color: #dbeafe; padding: 6px; border-radius: 8px; display: inline-block;">
+                  <img src="https://cdn-icons-png.flaticon.com/128/2838/2838779.png" style="width: 20px; height: 20px; display: block;" alt="Date" />
+                </div>
+              </div>
+              <div style="display: table-cell; vertical-align: middle; padding-left: 12px;">
+                <p style="font-size: 10px; color: #1e40af; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin: 0 0 4px 0; line-height: 1;">DATE & TIME</p>
+                <p style="font-size: 14px; color: #1e3a8a; font-weight: 800; margin: 0 0 2px 0; line-height: 1.2;">${new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}</p>
+                <p style="font-size: 13px; color: #2563eb; font-weight: 500; margin: 0; line-height: 1.2;">${new Date().toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hour12: true })}</p>
+              </div>
             </div>
           </div>
+          <!--[if mso]></td></tr></table><![endif]-->
         </div>
         
         <div class="content-box" style="background: linear-gradient(135deg, #f0fdf4 0%, #ecfdf5 100%); padding: 24px; border-radius: 16px; border: 2px solid #10b981; margin-bottom: 24px;">
