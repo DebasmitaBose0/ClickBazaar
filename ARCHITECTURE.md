@@ -67,10 +67,10 @@ graph TB
     C -->|UI Updates| B
 
     %% Styling
-    classDef frontend fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef backend fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef database fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
-    classDef external fill:#fff3e0,stroke:#e65100,stroke-width:2px
+    classDef frontend fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000000
+    classDef backend fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000000
+    classDef database fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px,color:#000000
+    classDef external fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000000
 
     class A,B,C,D frontend
     class E,F,G,H,I backend
@@ -130,10 +130,10 @@ graph TD
     C3 --> D3
 
     %% Styling
-    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    classDef backend fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    classDef smtp fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    classDef delivery fill:#e8f5e8,stroke:#388e3c,stroke-width:2px
+    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000000
+    classDef backend fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000000
+    classDef smtp fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000000
+    classDef delivery fill:#e8f5e8,stroke:#388e3c,stroke-width:2px,color:#000000
 
     class A1,A2,A3 user
     class B1,B2,B3,B4,B5 backend
@@ -371,12 +371,12 @@ flowchart TD
     B4 -->|AI Tasks| E2
 
     %% Styling
-    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    classDef frontend fill:#e1f5fe,stroke:#01579b,stroke-width:2px
-    classDef backend fill:#f3e5f5,stroke:#4a148c,stroke-width:2px
-    classDef services fill:#fff3e0,stroke:#e65100,stroke-width:2px
-    classDef database fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px
-    classDef external fill:#ffebee,stroke:#b71c1c,stroke-width:2px
+    classDef user fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000000
+    classDef frontend fill:#e1f5fe,stroke:#01579b,stroke-width:2px,color:#000000
+    classDef backend fill:#f3e5f5,stroke:#4a148c,stroke-width:2px,color:#000000
+    classDef services fill:#fff3e0,stroke:#e65100,stroke-width:2px,color:#000000
+    classDef database fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px,color:#000000
+    classDef external fill:#ffebee,stroke:#b71c1c,stroke-width:2px,color:#000000
 
     class U1,U2 user
     class F1,F2,F3 frontend
